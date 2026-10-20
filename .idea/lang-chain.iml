@@ -6,6 +6,9 @@
     </content>
     <orderEntry type="jdk" jdkName="~/Desktop/usr/lang-chain/.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="n3" level="application" />
+    <orderEntry type="library" name="graphology" level="application" />
+    <orderEntry type="library" name="sigma.js" level="application" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />

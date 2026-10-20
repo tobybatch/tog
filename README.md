@@ -17,6 +17,11 @@ uv run main.py <input_file_or_folder> [output_file]
 uv run validate.py <input_file>
 ```
 
+The generator uses a local Ollama instance at `http://localhost:11434` by default
+and the `llama3.1` model. Ensure Ollama is running and the model is available
+(`ollama pull llama3.1`). Override these settings with `OLLAMA_BASE_URL` and
+`OLLAMA_MODEL` if needed.
+
 e.g. Process all documents in `inputs/` into one ontology:
 
 ```bash

@@ -5,873 +5,226 @@
 
 ex: a owl:Ontology .
 
-ex:Adoption_Papers a owl:Class ;
-    rdfs:label "Adoption_Papers" ;
-    rdfs:comment "Legal adoption papers." ;
-    rdfs:subClassOf ex:Evidence .
-
-ex:Applicationfee a owl:Class ;
-    rdfs:label "ApplicationFee" ;
-    rdfs:comment "A payment required for a visa application" ;
-    rdfs:subClassOf ex:Fee .
-
-ex:Bank_Statement a owl:Class ;
-    rdfs:label "Bank_Statement" ;
-    rdfs:comment "Bank statements that prove you can support yourself and dependants." ;
-    rdfs:subClassOf ex:Evidence .
-
-ex:Britishnationaloverseas a owl:Class ;
-    rdfs:label "BritishNationalOverseas" ;
-    rdfs:comment "A British national who is a citizen of a country other than the UK" ;
-    rdfs:subClassOf ex:Citizen .
-
-ex:Britishoverseascitizen a owl:Class ;
-    rdfs:label "BritishOverseasCitizen" ;
-    rdfs:comment "A citizen of a British overseas territory" ;
-    rdfs:subClassOf ex:Citizen .
-
-ex:Britishoverseasterritoriescitizen a owl:Class ;
-    rdfs:label "BritishOverseasTerritoriesCitizen" ;
-    rdfs:comment "A citizen of a British overseas territory" ;
-    rdfs:subClassOf ex:Citizen .
-
-ex:Decision a owl:Class ;
-    rdfs:label "Decision" ;
-    rdfs:comment "The outcome of an application" ;
-    rdfs:subClassOf ex:Application .
-
-ex:Deed_Poll a owl:Class ;
-    rdfs:label "Deed_Poll" ;
-    rdfs:comment "A deed poll." ;
-    rdfs:subClassOf ex:Name_Change_Evidence .
-
-ex:Healthcaresurcharge a owl:Class ;
-    rdfs:label "HealthcareSurcharge" ;
-    rdfs:comment "A payment required for healthcare services" ;
-    rdfs:subClassOf ex:Fee .
-
-ex:Job_Offer a owl:Class ;
-    rdfs:label "Job_Offer" ;
-    rdfs:comment "A job offer or a business plan if self-employed." ;
-    rdfs:subClassOf ex:Evidence .
-
-ex:Marriage_Certificate a owl:Class ;
-    rdfs:label "Marriage_Certificate" ;
-    rdfs:comment "A marriage or civil partnership certificate." ;
-    rdfs:subClassOf ex:Name_Change_Evidence .
-
-ex:Proof_Of_Relationship a owl:Class ;
-    rdfs:label "Proof_of_Relationship" ;
-    rdfs:comment "Proof of relationship with partner or children." ;
-    rdfs:subClassOf ex:Evidence .
-
-ex:Tb_Test_Results a owl:Class ;
-    rdfs:label "TB_Test_Results" ;
-    rdfs:comment "Tuberculosis test results." ;
-    rdfs:subClassOf ex:Evidence .
-
-ex:Uk a owl:Class ;
-    rdfs:label "UK" ;
-    rdfs:comment "The United Kingdom" ;
-    rdfs:subClassOf ex:Place .
-
-ex:Visa_Application a owl:Class ;
-    rdfs:label "Visa_Application" ;
-    rdfs:comment "An application for a UK Ancestry visa." ;
-    rdfs:subClassOf ex:Application .
-
-ex:Visa_Application_Centre a owl:Class ;
-    rdfs:label "Visa_Application_Centre" ;
-    rdfs:comment "A location where visa applications are processed." ;
-    rdfs:subClassOf ex:Location .
-
-ex:Zimbabwecitizen a owl:Class ;
-    rdfs:label "ZimbabweCitizen" ;
-    rdfs:comment "A citizen of Zimbabwe" ;
-    rdfs:subClassOf ex:Citizen .
-
-ex:age a owl:DatatypeProperty ;
-    rdfs:label "age" ;
-    rdfs:comment "A person's age",
-        "The age of a child" ;
-    rdfs:domain ex:Child,
-        ex:Person ;
-    rdfs:range xsd:integer .
-
-ex:ancestry_Circumstances a owl:DatatypeProperty ;
-    rdfs:label "ancestry_circumstances" ;
-    rdfs:comment "The circumstances of a person's ancestry" ;
-    rdfs:domain ex:Ancestry ;
-    rdfs:range xsd:string .
-
-ex:applies_For_Indefinite_Leave_To_Remain a owl:ObjectProperty ;
-    rdfs:label "applies_for_indefinite_leave_to_remain" ;
-    rdfs:comment "A relationship representing the application for indefinite leave to remain" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Indefiniteleavetoremain .
-
-ex:can_Apply_For_British_Citizenship a owl:ObjectProperty ;
-    rdfs:label "can_apply_for_british_citizenship" ;
-    rdfs:comment "A resident who can apply for British citizenship" ;
-    rdfs:domain ex:Resident ;
-    rdfs:range ex:Citizenship .
-
-ex:can_Apply_For_Public_Funds a owl:ObjectProperty ;
-    rdfs:label "can_apply_for_public_funds" ;
-    rdfs:comment "A resident who can apply for public funds" ;
-    rdfs:domain ex:Resident ;
-    rdfs:range ex:Publicfund .
-
-ex:can_Bring_Dependants a owl:ObjectProperty ;
-    rdfs:label "can_bring_dependants" ;
-    rdfs:comment "A person can bring dependants" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Boolean .
-
-ex:can_Plan_To_Work a owl:ObjectProperty ;
-    rdfs:label "can_plan_to_work" ;
-    rdfs:comment "A person can plan to work" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Boolean .
-
-ex:can_Return_To_Uk a owl:ObjectProperty ;
-    rdfs:label "can_return_to_uk" ;
-    rdfs:comment "A resident who can return to the UK" ;
-    rdfs:domain ex:Resident ;
-    rdfs:range ex:Returntouk .
-
-ex:can_Study a owl:ObjectProperty ;
-    rdfs:label "can_study" ;
-    rdfs:comment "A person can study",
-        "A resident who can study" ;
-    rdfs:domain ex:Person,
-        ex:Resident ;
-    rdfs:range ex:Boolean,
-        ex:Study .
-
-ex:can_Support_Himself a owl:ObjectProperty ;
-    rdfs:label "can_support_himself" ;
-    rdfs:comment "A person can support himself" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Boolean .
-
-ex:can_Use_Public_Services a owl:ObjectProperty ;
-    rdfs:label "can_use_public_services" ;
-    rdfs:comment "A resident who can use public services" ;
-    rdfs:domain ex:Resident ;
-    rdfs:range ex:Publicservice .
-
-ex:can_Work a owl:ObjectProperty ;
-    rdfs:label "can_work" ;
-    rdfs:comment "A person can work",
-        "A resident who can work" ;
-    rdfs:domain ex:Person,
-        ex:Resident ;
-    rdfs:range ex:Boolean,
-        ex:Work .
-
-ex:communicates_Regularly a owl:ObjectProperty ;
-    rdfs:label "communicates_regularly" ;
-    rdfs:comment "Two individuals communicate regularly" ;
-    rdfs:domain ex:Communication ;
-    rdfs:range ex:Individual .
-
-ex:course_Duration a owl:DatatypeProperty ;
-    rdfs:label "course_duration" ;
-    rdfs:comment "The duration of a course" ;
-    rdfs:domain ex:Student ;
-    rdfs:range xsd:integer .
-
-ex:date_Of_Birth a owl:DatatypeProperty ;
-    rdfs:label "date_of_birth" ;
-    rdfs:comment "The date of birth of a person." ;
-    rdfs:domain ex:Person ;
-    rdfs:range xsd:date .
-
-ex:date_Submitted a owl:DatatypeProperty ;
-    rdfs:label "date_submitted" ;
-    rdfs:comment "The date an application is submitted." ;
-    rdfs:domain ex:Application ;
-    rdfs:range xsd:date .
-
-ex:decision_Time a owl:DatatypeProperty ;
-    rdfs:label "decision_time" ;
-    rdfs:comment "The time it takes to make a decision" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range xsd:string .
-
-ex:eligibility a owl:DatatypeProperty ;
-    rdfs:label "eligibility" ;
-    rdfs:comment "Whether the applicant is eligible for settlement" ;
-    rdfs:domain ex:Indefiniteleavetoremain ;
-    rdfs:range xsd:boolean .
-
-ex:evidence_Type a owl:DatatypeProperty ;
-    rdfs:label "evidence_type" ;
-    rdfs:comment "The type of evidence required for a claim" ;
-    rdfs:domain ex:Evidence ;
-    rdfs:range xsd:string .
-
-ex:extends_Visa a owl:ObjectProperty ;
-    rdfs:label "extends_visa" ;
-    rdfs:comment "A visa application can extend a visa" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range ex:Visa .
-
-ex:fee a owl:DatatypeProperty ;
-    rdfs:label "fee" ;
-    rdfs:comment "A property representing the fee for applying for indefinite leave to remain" ;
-    rdfs:domain ex:Indefiniteleavetoremain ;
-    rdfs:range xsd:integer .
-
-ex:has_Ancestry a owl:ObjectProperty ;
-    rdfs:label "has_ancestry" ;
-    rdfs:comment "A person has ancestry" ;
-    rdfs:domain ex:Ancestry ;
-    rdfs:range ex:Person .
-
-ex:has_Ancestry_Visa a owl:ObjectProperty ;
-    rdfs:label "has_ancestry_visa" ;
-    rdfs:comment "A relationship representing the possession of an ancestry visa" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Ancestryvisa .
-
-ex:has_Applicant a owl:ObjectProperty ;
-    rdfs:label "has_applicant" ;
-    rdfs:comment "The person making the application" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range ex:Person .
-
-ex:has_Biometric_Information a owl:DatatypeProperty,
-        owl:ObjectProperty ;
-    rdfs:label "has_biometric_information" ;
-    rdfs:comment "A UK Visa and Citizenship Application Services location has biometric information",
-        "A relationship representing the possession of biometric information" ;
-    rdfs:domain ex:Person,
-        ex:Ukvisaandcitizenshipapplicationservices ;
-    rdfs:range ex:Thing,
-        xsd:string .
-
-ex:has_Child a owl:ObjectProperty ;
-    rdfs:label "has_child" ;
-    rdfs:comment "A person has a child",
-        "An individual has a child",
-        "The child(ren) applying for indefinite leave to remain" ;
-    rdfs:domain ex:Application,
-        ex:Child,
-        ex:Person ;
-    rdfs:range ex:Child,
-        ex:Individual .
-
-ex:has_Citizenship a owl:ObjectProperty ;
-    rdfs:label "has_citizenship" ;
-    rdfs:comment "A citizen has citizenship of a country" ;
-    rdfs:domain ex:Citizen ;
-    rdfs:range ex:Country .
-
-ex:has_Commitment a owl:ObjectProperty ;
-    rdfs:label "has_commitment" ;
-    rdfs:comment "An individual has an ongoing commitment" ;
-    rdfs:domain ex:Commitment ;
-    rdfs:range ex:Commitment .
-
-ex:has_Complex_Processing a owl:ObjectProperty ;
-    rdfs:label "has_complex_processing" ;
-    rdfs:comment "An application that requires additional processing" ;
-    rdfs:domain ex:Application ;
-    rdfs:range ex:Complexapplication .
-
-ex:has_Criminal_Conviction a owl:ObjectProperty ;
-    rdfs:label "has_criminal_conviction" ;
-    rdfs:comment "A person with a criminal conviction" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Criminalconviction .
-
-ex:has_Decision a owl:DatatypeProperty ;
-    rdfs:label "has_decision" ;
-    rdfs:comment "A visa application has a decision" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range xsd:string .
-
-ex:has_Dependant a owl:ObjectProperty ;
-    rdfs:label "has_dependant" ;
-    rdfs:comment "A person has a dependent child",
-        "The dependant(s) applying for indefinite leave to remain" ;
-    rdfs:domain ex:Application,
-        ex:Person ;
-    rdfs:range ex:Child,
-        ex:Dependant .
-
-ex:has_Dependants a owl:ObjectProperty ;
-    rdfs:label "has_dependants" ;
-    rdfs:comment "A relationship representing the dependants of a person" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Dependant .
-
-ex:has_Documents a owl:ObjectProperty ;
-    rdfs:label "has_documents" ;
-    rdfs:comment "The documents supporting the application" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range ex:Document .
-
-ex:has_Enough_Money a owl:ObjectProperty ;
-    rdfs:label "has_enough_money" ;
-    rdfs:comment "A person has enough money" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Boolean .
-
-ex:has_Evidence a owl:DatatypeProperty ;
-    rdfs:label "has_evidence" ;
-    rdfs:comment "The evidence required to support the application" ;
-    rdfs:domain ex:Application ;
-    rdfs:range xsd:string .
-
-ex:has_Fee a owl:DatatypeProperty ;
-    rdfs:label "has_fee" ;
-    rdfs:comment "A visa application has a fee" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range xsd:string .
-
-ex:has_Grandparent a owl:ObjectProperty ;
-    rdfs:label "has_grandparent" ;
-    rdfs:comment "A person has a grandparent" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Grandparent .
-
-ex:has_Indefinite_Leave_To_Remain a owl:ObjectProperty ;
-    rdfs:label "has_indefinite_leave_to_remain" ;
-    rdfs:comment "A person with indefinite leave to remain" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Resident .
-
-ex:has_Independent_Life a owl:ObjectProperty ;
-    rdfs:label "has_independent_life" ;
-    rdfs:comment "A child has reached an independent life stage" ;
-    rdfs:domain ex:Independentlife ;
-    rdfs:range ex:Child .
-
-ex:has_Interview a owl:ObjectProperty ;
-    rdfs:label "has_interview" ;
-    rdfs:comment "An interview required for the application" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range ex:Interview .
-
-ex:has_Parent_Names a owl:ObjectProperty ;
-    rdfs:label "has_parent_names" ;
-    rdfs:comment "A UK birth certificate that shows the names of both parents." ;
-    rdfs:domain ex:Uk_Birth_Certificate ;
-    rdfs:range ex:Person .
-
-ex:has_Partner a owl:ObjectProperty ;
-    rdfs:label "has_partner" ;
-    rdfs:comment "A person has a partner",
-        "An individual has a romantic partner",
-        "The partner applying for indefinite leave to remain" ;
-    rdfs:domain ex:Application,
-        ex:Partner,
-        ex:Person ;
-    rdfs:range ex:Individual,
-        ex:Partner .
-
-ex:has_Passport a owl:ObjectProperty ;
-    rdfs:label "has_passport" ;
-    rdfs:comment "A passport is required for a visa application" ;
-    rdfs:domain ex:Passport ;
-    rdfs:range ex:Document .
-
-ex:has_Permission_To_Stay a owl:ObjectProperty ;
-    rdfs:label "has_permission_to_stay" ;
-    rdfs:comment "A person has permission to stay" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Thing .
-
-ex:has_Personal_Circumstances a owl:ObjectProperty ;
-    rdfs:label "has_personal_circumstances" ;
-    rdfs:comment "The personal circumstances of the applicant" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range ex:Personalcircumstances .
-
-ex:has_Public_Funds a owl:ObjectProperty ;
-    rdfs:label "has_public_funds" ;
-    rdfs:comment "A person has public funds" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Boolean .
-
-ex:has_Relationship a owl:DatatypeProperty ;
-    rdfs:label "has_relationship" ;
-    rdfs:comment "The type of relationship between the family member and the main applicant" ;
-    rdfs:domain ex:Familymember ;
-    rdfs:range xsd:string .
-
-ex:has_Settlement a owl:ObjectProperty ;
-    rdfs:label "has_settlement" ;
-    rdfs:comment "The settlement granted to the applicant" ;
-    rdfs:domain ex:Indefiniteleavetoremain ;
-    rdfs:range ex:Settlement .
-
-ex:has_Simple_Processing a owl:ObjectProperty ;
-    rdfs:label "has_simple_processing" ;
-    rdfs:comment "An application that can be processed quickly" ;
-    rdfs:domain ex:Application ;
-    rdfs:range ex:Simpleapplication .
-
-ex:has_Supporting_Documents a owl:DatatypeProperty ;
-    rdfs:label "has_supporting_documents" ;
-    rdfs:comment "A visa application has supporting documents" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range xsd:string .
-
-ex:has_Time_Outside_Uk a owl:ObjectProperty ;
-    rdfs:label "has_time_outside_uk" ;
-    rdfs:comment "The time spent outside the UK" ;
-    rdfs:domain ex:Ukancestryvisa ;
-    rdfs:range ex:Time .
-
-ex:has_Visa a owl:ObjectProperty ;
-    rdfs:label "has_visa" ;
-    rdfs:comment "A person has a UK Ancestry visa",
-        "A person has a visa" ;
-    rdfs:domain ex:Person,
-        ex:Visa ;
-    rdfs:range ex:Person,
-        ex:Ukancestryvisa .
-
-ex:income a owl:DatatypeProperty ;
-    rdfs:label "income" ;
-    rdfs:comment "A person's income" ;
-    rdfs:domain ex:Person ;
-    rdfs:range xsd:integer .
-
-ex:is_Applying_For a owl:ObjectProperty ;
-    rdfs:label "is_applying_for" ;
-    rdfs:comment "A person is applying for a visa" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Visa .
-
-ex:is_Commonwealth_Citizen a owl:ObjectProperty ;
-    rdfs:label "is_commonwealth_citizen" ;
-    rdfs:comment "A relationship representing the citizenship of a person" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Commonwealthcitizen .
-
-ex:is_Dependent a owl:ObjectProperty ;
-    rdfs:label "is_dependent" ;
-    rdfs:comment "A child is dependent on their parents",
-        "A person is a dependant" ;
-    rdfs:domain ex:Dependant,
-        ex:Person ;
-    rdfs:range ex:Child,
-        ex:Dependant .
-
-ex:is_Entity a owl:ObjectProperty ;
-    rdfs:label "is_entity" ;
-    rdfs:comment "An entity is a thing" ;
-    rdfs:domain ex:Entity ;
-    rdfs:range ex:Thing .
-
-ex:is_Evidence_Of a owl:ObjectProperty ;
-    rdfs:label "is_evidence_of" ;
-    rdfs:comment "Evidence that supports a claim." ;
-    rdfs:domain ex:Evidence ;
-    rdfs:range ex:Claim .
-
-ex:is_In a owl:ObjectProperty ;
-    rdfs:label "is_in" ;
-    rdfs:comment "A person is in a place" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Place .
-
-ex:is_In_Immigration_Bail a owl:ObjectProperty ;
-    rdfs:label "is_in_immigration_bail" ;
-    rdfs:comment "The situation where a family member is in immigration bail" ;
-    rdfs:domain ex:Familymember ;
-    rdfs:range ex:Immigrationbail .
-
-ex:is_In_Relationship a owl:ObjectProperty ;
-    rdfs:label "is_in_relationship" ;
-    rdfs:comment "Two people are in a relationship" ;
-    rdfs:domain ex:Relationship ;
-    rdfs:range ex:PairOfPeople .
-
-ex:is_Individual a owl:ObjectProperty ;
-    rdfs:label "is_individual" ;
-    rdfs:comment "An individual is a person" ;
-    rdfs:domain ex:Individual ;
-    rdfs:range ex:Person .
-
-ex:is_Part_Of a owl:ObjectProperty ;
-    rdfs:label "is_part_of" ;
-    rdfs:comment "An application that is part of a claim." ;
-    rdfs:domain ex:Application ;
-    rdfs:range ex:Claim .
-
-ex:is_Person a owl:ObjectProperty ;
-    rdfs:label "is_person" ;
-    rdfs:comment "A person is an entity" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Entity .
-
-ex:is_Required_For a owl:ObjectProperty ;
-    rdfs:label "is_required_for" ;
-    rdfs:comment "A document that is required for an application." ;
-    rdfs:domain ex:Document ;
-    rdfs:range ex:Application .
-
-ex:is_Taken_At a owl:ObjectProperty ;
-    rdfs:label "is_taken_at" ;
-    rdfs:comment "Biometric information that is taken at a location." ;
-    rdfs:domain ex:Biometric_Information ;
-    rdfs:range ex:Location .
-
-ex:makes_Application a owl:ObjectProperty ;
-    rdfs:label "makes_application" ;
-    rdfs:comment "An individual makes an application" ;
-    rdfs:domain ex:Application ;
-    rdfs:range ex:Process .
-
-ex:meets_English_Language_Requirements a owl:ObjectProperty ;
-    rdfs:label "meets_english_language_requirements" ;
-    rdfs:comment "A relationship representing the meeting of English language requirements" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Thing .
-
-ex:minimum_Processing_Time a owl:DatatypeProperty ;
-    rdfs:label "minimum_processing_time" ;
-    rdfs:comment "The minimum time it takes to process an application" ;
-    rdfs:domain ex:Application ;
-    rdfs:range xsd:string .
-
-ex:must_Apply_For_Uk_Ancestry_Visa a owl:ObjectProperty ;
-    rdfs:label "must_apply_for_uk_ancestry_visa" ;
-    rdfs:comment "The requirement for a family member to apply for a UK Ancestry visa instead" ;
-    rdfs:domain ex:Familymember ;
-    rdfs:range ex:Ukancestryvisa .
-
-ex:nationality a owl:DatatypeProperty ;
-    rdfs:label "nationality" ;
-    rdfs:comment "The nationality of an individual" ;
-    rdfs:domain ex:Individual ;
-    rdfs:range xsd:string .
-
-ex:passes_Life_In_The_Uk_Test a owl:ObjectProperty ;
-    rdfs:label "passes_life_in_the_uk_test" ;
-    rdfs:comment "A relationship representing the passing of the Life in the UK Test" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Thing .
-
-ex:processing_Time a owl:DatatypeProperty ;
-    rdfs:label "processing_time" ;
-    rdfs:comment "A property representing the processing time for applying for indefinite leave to remain",
-        "The time it takes to process an application" ;
-    rdfs:domain ex:Application,
-        ex:Indefiniteleavetoremain ;
-    rdfs:range xsd:integer,
-        xsd:string .
-
-ex:provides_Biometric_Information a owl:ObjectProperty ;
-    rdfs:label "provides_biometric_information" ;
-    rdfs:comment "A UK Visa and Citizenship Application Services location provides biometric information",
-        "An individual provides biometric information" ;
-    rdfs:domain ex:Biometricinformation,
-        ex:Ukvisaandcitizenshipapplicationservices ;
-    rdfs:range ex:Application,
-        ex:Biometricinformation .
-
-ex:provides_Childcare a owl:ObjectProperty ;
-    rdfs:label "provides_childcare" ;
-    rdfs:comment "One individual provides care for the children of another" ;
-    rdfs:domain ex:Childcare ;
-    rdfs:range ex:Child .
-
-ex:provides_Evidence a owl:ObjectProperty ;
-    rdfs:label "provides_evidence" ;
-    rdfs:comment "An individual provides evidence of an ongoing commitment" ;
-    rdfs:domain ex:Commitment ;
-    rdfs:range ex:Evidence .
-
-ex:provides_Financial_Support a owl:ObjectProperty ;
-    rdfs:label "provides_financial_support" ;
-    rdfs:comment "One individual provides financial support to another" ;
-    rdfs:domain ex:Financialsupport ;
-    rdfs:range ex:Individual .
-
-ex:relationship_Type a owl:DatatypeProperty ;
-    rdfs:label "relationship_type" ;
-    rdfs:comment "The type of relationship between two people" ;
-    rdfs:domain ex:Relationship ;
-    rdfs:range xsd:string .
-
-ex:requires_Application_Fee a owl:ObjectProperty ;
-    rdfs:label "requires_application_fee" ;
-    rdfs:comment "A visa application requires an application fee" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range ex:Fee .
-
-ex:requires_English_Language a owl:ObjectProperty ;
-    rdfs:label "requires_english_language" ;
-    rdfs:comment "The requirement for the applicant to demonstrate English language proficiency" ;
-    rdfs:domain ex:Application ;
-    rdfs:range ex:Thing .
-
-ex:requires_Evidence a owl:ObjectProperty ;
-    rdfs:label "requires_evidence" ;
-    rdfs:comment "A claim requires evidence" ;
-    rdfs:domain ex:Claim ;
-    rdfs:range ex:Evidence .
-
-ex:requires_Healthcare_Surcharge a owl:ObjectProperty ;
-    rdfs:label "requires_healthcare_surcharge" ;
-    rdfs:comment "A visa application requires a healthcare surcharge" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range ex:Fee .
-
-ex:requires_Interview a owl:ObjectProperty ;
-    rdfs:label "requires_interview" ;
-    rdfs:comment "An application that requires an interview" ;
-    rdfs:domain ex:Application ;
-    rdfs:range ex:Interview .
-
-ex:requires_Life_In_The_Uk_Test a owl:ObjectProperty ;
-    rdfs:label "requires_life_in_the_uk_test" ;
-    rdfs:comment "The requirement for the applicant to pass the Life in the UK test" ;
-    rdfs:domain ex:Application ;
-    rdfs:range ex:Thing .
-
-ex:requires_Supporting_Documents a owl:ObjectProperty ;
-    rdfs:label "requires_supporting_documents" ;
-    rdfs:comment "A visa application requires supporting documents" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range ex:Supportingdocuments .
-
-ex:requires_Verification a owl:ObjectProperty ;
-    rdfs:label "requires_verification" ;
-    rdfs:comment "An application that requires verification of supporting documents" ;
-    rdfs:domain ex:Application ;
-    rdfs:range ex:Verification .
-
-ex:settles_In_The_Uk a owl:ObjectProperty ;
-    rdfs:label "settles_in_the_uk" ;
-    rdfs:comment "A visa application can settle in the UK" ;
-    rdfs:domain ex:Visaapplication ;
-    rdfs:range ex:Residency .
-
-ex:spends_Time_Together a owl:ObjectProperty ;
-    rdfs:label "spends_time_together" ;
-    rdfs:comment "Two individuals spend time together" ;
-    rdfs:domain ex:Timetogether ;
-    rdfs:range ex:Individual .
-
-ex:submits_Supporting_Documents a owl:ObjectProperty ;
-    rdfs:label "submits_supporting_documents" ;
-    rdfs:comment "An individual submits supporting documents" ;
-    rdfs:domain ex:Supportingdocuments ;
-    rdfs:range ex:Application .
-
-ex:uses_Super_Priority_Service a owl:ObjectProperty ;
-    rdfs:label "uses_super_priority_service" ;
-    rdfs:comment "A relationship representing the use of the super priority service" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Thing .
-
-ex:uses_Ukvcas a owl:ObjectProperty ;
-    rdfs:label "uses_UKVCAS" ;
-    rdfs:comment "An individual uses the UKVCAS service" ;
-    rdfs:domain ex:Ukvcas ;
-    rdfs:range ex:Service .
-
-ex:was_Born_In a owl:ObjectProperty ;
-    rdfs:label "was_born_in" ;
-    rdfs:comment "A grandparent was born in a location" ;
-    rdfs:domain ex:Grandparent ;
-    rdfs:range ex:Location .
-
-ex:Ancestryvisa a owl:Class ;
-    rdfs:label "AncestryVisa" ;
-    rdfs:comment "A type of visa that allows individuals to apply for indefinite leave to remain" ;
-    rdfs:subClassOf ex:Eligibility .
-
-ex:Childcare a owl:Class ;
-    rdfs:label "Childcare" ;
-    rdfs:comment "Care provided by one individual to the children of another" ;
-    rdfs:subClassOf ex:Evidence .
-
-ex:Commonwealthcitizen a owl:Class ;
-    rdfs:label "CommonwealthCitizen" ;
-    rdfs:comment "A class representing individuals who are citizens of the Commonwealth" ;
-    rdfs:subClassOf ex:Citizen .
-
-ex:Communication a owl:Class ;
-    rdfs:label "Communication" ;
-    rdfs:comment "Regular communication between two individuals" ;
-    rdfs:subClassOf ex:Evidence .
-
-ex:Complexapplication a owl:Class ;
-    rdfs:label "ComplexApplication" ;
-    rdfs:comment "An application that requires additional processing" ;
-    rdfs:subClassOf ex:Application .
-
-ex:Eligibility a owl:Class ;
-    rdfs:label "Eligibility" ;
-    rdfs:comment "A concept representing the eligibility criteria for indefinite leave to remain" ;
-    rdfs:subClassOf ex:Thing .
-
-ex:Financialsupport a owl:Class ;
-    rdfs:label "FinancialSupport" ;
-    rdfs:comment "Financial support provided by one individual to another" ;
-    rdfs:subClassOf ex:Evidence .
-
-ex:Immigrationbail a owl:Class ;
-    rdfs:label "ImmigrationBail" ;
-    rdfs:comment "A situation where a person is allowed to stay in the UK temporarily" ;
-    rdfs:subClassOf ex:Thing .
-
-ex:Independentlife a owl:Class ;
-    rdfs:label "IndependentLife" ;
-    rdfs:comment "A child who has reached an independent life stage" ;
-    rdfs:subClassOf ex:Child .
-
-ex:Object a owl:Class ;
-    rdfs:label "Object" ;
-    rdfs:comment "A thing that exists" ;
-    rdfs:subClassOf ex:Entity .
+ex:Bankstatement a owl:Class ;
+    rdfs:label "BankStatement" ;
+    rdfs:comment "A document issued by a bank to show account balance and transactions" .
 
 ex:Passport a owl:Class ;
     rdfs:label "Passport" ;
-    rdfs:comment "A current passport or another valid travel document." ;
-    rdfs:subClassOf ex:Travel_Document .
+    rdfs:comment "A travel document issued by a government to its citizens" .
 
-ex:Simpleapplication a owl:Class ;
-    rdfs:label "SimpleApplication" ;
-    rdfs:comment "An application that can be processed quickly" ;
-    rdfs:subClassOf ex:Application .
+ex:Temporaryworkcreativeworkervisa a owl:Class ;
+    rdfs:label "TemporaryWorkCreativeWorkerVisa" ;
+    rdfs:comment "A type of visa for temporary workers in the creative industry" .
 
-ex:Timetogether a owl:Class ;
-    rdfs:label "TimeTogether" ;
-    rdfs:comment "Time spent together by two individuals" ;
-    rdfs:subClassOf ex:Evidence .
+ex:Tuberculosistestresult a owl:Class ;
+    rdfs:label "TuberculosisTestResult" ;
+    rdfs:comment "A document issued by a medical professional to confirm TB test results" .
 
-ex:Uk_Birth_Certificate a owl:Class ;
-    rdfs:label "UK_Birth_Certificate" ;
-    rdfs:comment "A document that shows the names of both parents." ;
-    rdfs:subClassOf ex:Document .
-
-ex:Ukvcas a owl:Class ;
+ex:Ukvcas a ex:Service,
+        owl:NamedIndividual ;
     rdfs:label "UKVCAS" ;
-    rdfs:comment "A service for processing visa applications" ;
-    rdfs:subClassOf ex:Service .
+    rdfs:comment "A UK Visa and Citizenship Application Services service point" .
 
-ex:Ancestry a owl:Class ;
-    rdfs:label "Ancestry" ;
-    rdfs:comment "A claim of ancestry" ;
-    rdfs:subClassOf ex:Thing .
+ex:Ukvisa a owl:Class ;
+    rdfs:label "UKVisa" ;
+    rdfs:comment "A visa that allows an individual to work in the UK" .
 
-ex:Biometricinformation a owl:Class ;
-    rdfs:label "BiometricInformation" ;
-    rdfs:comment "Fingerprints and a photo used for identification" ;
-    rdfs:subClassOf ex:Data .
+ex:Ukvisasandimmigrationaccount a owl:Class ;
+    rdfs:label "UKVisasAndImmigrationAccount" ;
+    rdfs:comment "An online account for UKVI services" .
 
-ex:Grandparent a owl:Class ;
-    rdfs:label "Grandparent" ;
-    rdfs:comment "A parent of a parent" ;
-    rdfs:subClassOf ex:Person .
+ex:Unitedkingdom a ex:Country,
+        owl:NamedIndividual ;
+    rdfs:label "UnitedKingdom" ;
+    rdfs:comment "The country where the visa application is being made" .
 
-ex:Partner a owl:Class ;
-    rdfs:label "Partner" ;
-    rdfs:comment "The spouse or civil partner of the main applicant" ;
-    rdfs:subClassOf ex:Person .
+ex:applicationnumber a owl:DatatypeProperty ;
+    rdfs:label "applicationNumber" ;
+    rdfs:comment "The unique application number assigned to the visa application" ;
+    rdfs:domain ex:Application ;
+    rdfs:range xsd:string .
 
-ex:Relationship a owl:Class ;
-    rdfs:label "Relationship" ;
-    rdfs:comment "A connection between two people" ;
-    rdfs:subClassOf ex:Thing .
+ex:decisiondate a owl:DatatypeProperty ;
+    rdfs:label "decisionDate" ;
+    rdfs:comment "The date of the visa decision" ;
+    rdfs:domain ex:Visaapplication ;
+    rdfs:range xsd:date .
 
-ex:Supportingdocuments a owl:Class ;
-    rdfs:label "SupportingDocuments" ;
-    rdfs:comment "Documents required to support a visa application" ;
-    rdfs:subClassOf ex:Data .
+ex:hasamount a owl:DatatypeProperty ;
+    rdfs:label "hasAmount" ;
+    rdfs:comment "The amount of money required for financial support" ;
+    rdfs:domain ex:Financialsupport ;
+    rdfs:range xsd:integer .
 
-ex:Ukvisaandcitizenshipapplicationservices a owl:Class ;
-    rdfs:label "UKVisaAndCitizenshipApplicationServices" ;
-    rdfs:comment "A location where biometric information and supporting documents can be provided" ;
-    rdfs:subClassOf ex:Servicepoint .
+ex:hasapplicant a owl:ObjectProperty ;
+    rdfs:label "hasApplicant" ;
+    rdfs:comment "The individual who submitted the visa application",
+        "The person sponsored by the certificate" ;
+    rdfs:domain ex:Certificateofsponsorship,
+        ex:Visaapplication ;
+    rdfs:range ex:Application,
+        ex:Person .
 
-ex:Familymember a owl:Class ;
-    rdfs:label "FamilyMember" ;
-    rdfs:comment "A person who is applying for indefinite leave to remain as a dependant" ;
-    rdfs:subClassOf ex:Thing .
+ex:hascertificateofsponsorship a owl:ObjectProperty ;
+    rdfs:label "hasCertificateOfSponsorship" ;
+    rdfs:comment "The certificate of sponsorship given by the employer" ;
+    rdfs:domain ex:Creativeworker ;
+    rdfs:range ex:Certificateofsponsorship .
 
-ex:Ukancestryvisa a owl:Class ;
-    rdfs:label "UKAncestryVisa" ;
-    rdfs:comment "A visa for citizens of certain countries to live and work in the UK" ;
-    rdfs:subClassOf ex:Visa .
+ex:hasdateassigned a owl:DatatypeProperty ;
+    rdfs:label "hasDateAssigned" ;
+    rdfs:comment "The date the certificate of sponsorship was assigned" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range xsd:date .
 
-ex:Commitment a owl:Class ;
-    rdfs:label "Commitment" ;
-    rdfs:comment "An ongoing commitment between two individuals" ;
-    rdfs:subClassOf ex:Commitment .
+ex:hasdatevalid a owl:DatatypeProperty ;
+    rdfs:label "hasDateValid" ;
+    rdfs:comment "The date the certificate of sponsorship is valid until" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range xsd:date .
+
+ex:hasdependant a owl:ObjectProperty ;
+    rdfs:label "hasDependant" ;
+    rdfs:comment "The partner or child of the visa applicant" ;
+    rdfs:domain ex:Application ;
+    rdfs:range ex:Dependant .
+
+ex:hasduration a owl:DatatypeProperty ;
+    rdfs:label "hasDuration" ;
+    rdfs:comment "The duration of the certificate of sponsorship in days" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range xsd:integer .
+
+ex:hasemployer a owl:ObjectProperty ;
+    rdfs:label "hasEmployer" ;
+    rdfs:comment "The employer sponsoring the worker" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range ex:Employer .
+
+ex:hasemployersupport a owl:DatatypeProperty ;
+    rdfs:label "hasEmployerSupport" ;
+    rdfs:comment "Whether the employer can support the individual financially" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range xsd:boolean .
+
+ex:hasfee a owl:ObjectProperty ;
+    rdfs:label "hasFee" ;
+    rdfs:comment "The fee required for the visa application" ;
+    rdfs:domain ex:Visaapplication ;
+    rdfs:range ex:Fee .
+
+ex:hasfinancialsupport a owl:ObjectProperty ;
+    rdfs:label "hasFinancialSupport" ;
+    rdfs:comment "The ability to support oneself financially in the UK" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range ex:Financialsupport .
+
+ex:hasjob a owl:ObjectProperty ;
+    rdfs:label "hasJob" ;
+    rdfs:comment "The position or role within the organisation" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range ex:Job .
+
+ex:haspersonaldetails a owl:ObjectProperty ;
+    rdfs:label "hasPersonalDetails" ;
+    rdfs:comment "The information about the individual's identity and contact details" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range ex:Personaldetails .
+
+ex:hassponsor a owl:ObjectProperty ;
+    rdfs:label "hasSponsor" ;
+    rdfs:comment "The organisation that gave the certificate of sponsorship" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range ex:Sponsor .
+
+ex:isemployedby a owl:ObjectProperty ;
+    rdfs:label "isEmployedBy" ;
+    rdfs:comment "The organisation that employs the individual" ;
+    rdfs:domain ex:Creativeworker ;
+    rdfs:range ex:Employer .
+
+ex:personalsavings a owl:DatatypeProperty ;
+    rdfs:label "personalSavings" ;
+    rdfs:comment "The amount of personal savings" ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:integer .
+
+ex:providedby a owl:ObjectProperty ;
+    rdfs:label "providedBy" ;
+    rdfs:comment "The service that provided the support for the visa application" ;
+    rdfs:domain ex:Service ;
+    rdfs:range ex:Service .
+
+ex:requiresevidence a owl:ObjectProperty ;
+    rdfs:label "requiresEvidence" ;
+    rdfs:comment "The evidence required for the visa application" ;
+    rdfs:domain ex:Visaapplication ;
+    rdfs:range ex:Evidence .
+
+ex:sponsorcertifiesmaintenance a owl:DatatypeProperty ;
+    rdfs:label "sponsorCertifiesMaintenance" ;
+    rdfs:comment "Whether the employer certifies maintenance" ;
+    rdfs:domain ex:Certificateofsponsorship ;
+    rdfs:range xsd:boolean .
+
+ex:Country a owl:Class ;
+    rdfs:label "Country" ;
+    rdfs:comment "A country where a visa application is being made" .
 
 ex:Dependant a owl:Class ;
     rdfs:label "Dependant" ;
-    rdfs:comment "A class representing individuals who are dependants of a person applying for indefinite leave to remain" ;
-    rdfs:subClassOf ex:Person .
-
-ex:Entity a owl:Class ;
-    rdfs:label "Entity" ;
-    rdfs:comment "A general term for any kind of thing, including individuals, organizations, and concepts" ;
-    rdfs:subClassOf ex:Thing .
-
-ex:Visa a owl:Class ;
-    rdfs:label "Visa" ;
-    rdfs:comment "A permission to enter or stay in a country" ;
-    rdfs:subClassOf ex:Thing .
-
-ex:Indefiniteleavetoremain a owl:Class ;
-    rdfs:label "IndefiniteLeaveToRemain" ;
-    rdfs:comment "A concept representing the status of being granted indefinite leave to remain" ;
-    rdfs:subClassOf ex:Application .
-
-ex:Citizen a owl:Class ;
-    rdfs:label "Citizen" ;
-    rdfs:comment "A person with British citizenship" ;
-    rdfs:subClassOf ex:Person .
-
-ex:Resident a owl:Class ;
-    rdfs:label "Resident" ;
-    rdfs:comment "A person with indefinite leave to remain" ;
-    rdfs:subClassOf ex:Person .
-
-ex:Child a owl:Class ;
-    rdfs:label "Child" ;
-    rdfs:comment "A child of the main applicant" ;
-    rdfs:subClassOf ex:Person .
-
-ex:Individual a owl:Class ;
-    rdfs:label "Individual" ;
-    rdfs:comment "A single entity, such as a person or organization" ;
-    rdfs:subClassOf ex:Entity .
+    rdfs:comment "A partner or child of a visa applicant" .
 
 ex:Evidence a owl:Class ;
     rdfs:label "Evidence" ;
-    rdfs:comment "Proof of a claim or relationship" ;
-    rdfs:subClassOf ex:Thing .
+    rdfs:comment "A document or information required to support a visa application" .
 
-ex:Visaapplication a owl:Class ;
-    rdfs:label "VisaApplication" ;
-    rdfs:comment "A request for permission to enter or stay in a country" ;
-    rdfs:subClassOf ex:Application .
+ex:Fee a owl:Class ;
+    rdfs:label "Fee" ;
+    rdfs:comment "A payment required for a visa application" .
 
-ex:Thing a owl:Class ;
-    rdfs:label "Thing" ;
-    rdfs:comment "A general term for any kind of object, including physical objects, concepts, and abstract entities" ;
-    rdfs:subClassOf ex:Object .
+ex:Job a owl:Class ;
+    rdfs:label "Job" ;
+    rdfs:comment "A position or role within an organisation" .
 
-ex:Application a owl:Class ;
-    rdfs:label "Application" ;
-    rdfs:comment "A process for applying for indefinite leave to remain" ;
-    rdfs:subClassOf ex:Thing .
+ex:Personaldetails a owl:Class ;
+    rdfs:label "PersonalDetails" ;
+    rdfs:comment "Information about an individual's identity and contact details" .
+
+ex:Sponsor a owl:Class ;
+    rdfs:label "Sponsor" ;
+    rdfs:comment "An organisation that gives a certificate of sponsorship" .
+
+ex:Creativeworker a owl:Class ;
+    rdfs:label "CreativeWorker" ;
+    rdfs:comment "An individual who works in a creative field" .
+
+ex:Employer a owl:Class ;
+    rdfs:label "Employer" ;
+    rdfs:comment "An organisation that employs an individual" .
+
+ex:Financialsupport a owl:Class ;
+    rdfs:label "FinancialSupport" ;
+    rdfs:comment "The ability to support oneself financially in the UK" .
 
 ex:Person a owl:Class ;
     rdfs:label "Person" ;
-    rdfs:comment "A class representing individuals who can apply for indefinite leave to remain" ;
-    rdfs:subClassOf ex:Individual .
+    rdfs:comment "A class representing Person." .
+
+ex:Application a owl:Class ;
+    rdfs:label "Application" ;
+    rdfs:comment "A visa application submitted by an individual" .
+
+ex:Service a owl:Class ;
+    rdfs:label "Service" ;
+    rdfs:comment "A service provided by the Home Office for visa applications" .
+
+ex:Visaapplication a owl:Class ;
+    rdfs:label "VisaApplication" ;
+    rdfs:comment "A visa application submitted to the Home Office" .
+
+ex:Certificateofsponsorship a owl:Class ;
+    rdfs:label "CertificateOfSponsorship" ;
+    rdfs:comment "A reference number holding information about the job and personal details" .
 

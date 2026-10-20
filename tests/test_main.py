@@ -168,3 +168,123 @@ def test_extraction_failure_preserves_existing_output(tmp_path, monkeypatch):
         main.main()
 
     assert output.read_text() == "existing ontology"
+
+
+def test_named_individuals_and_primitive_range_conversion(tmp_path):
+    schema = main.OntologySchema(
+        classes=[main.ConceptClass(name="Service", description="A public service")],
+        individuals=[
+            main.NamedIndividual(
+                name="UKVCAS",
+                instance_of="Service",
+                description="UK Visa and Citizenship Application Services",
+            )
+        ],
+        object_properties=[
+            main.ObjectProperty(
+                name="canBringDependants",
+                domain="Person",
+                range="Boolean",
+                description="Whether a person can bring dependants",
+            ),
+            main.ObjectProperty(
+                name="appliesFor",
+                domain="Person",
+                range="Visa",
+                description="Person applies for a visa",
+            ),
+        ],
+    )
+
+    merged = main.merge_ontologies([schema])
+    assert len(merged.individuals) == 1
+    assert merged.individuals[0].name == "UKVCAS"
+
+    # canBringDependants should be converted to data_properties with boolean type
+    assert any(
+        dp.name == "canBringDependants" and dp.data_type == "boolean"
+        for dp in merged.data_properties
+    )
+    # appliesFor should remain an object_property
+    assert any(op.name == "appliesFor" for op in merged.object_properties)
+
+    output = tmp_path / "ontology.ttl"
+    main.build_turtle_file(merged, "http://example.org/digitaltwin#", str(output))
+
+    graph = Graph().parse(output, format="turtle")
+    ex = Namespace("http://example.org/digitaltwin#")
+
+    # Check UKVCAS individual
+    ukvcas_uri = ex[main.clean_identifier("UKVCAS")]
+    assert (ukvcas_uri, RDF.type, OWL.NamedIndividual) in graph
+    assert (ukvcas_uri, RDF.type, ex.Service) in graph
+    assert (ukvcas_uri, RDFS.label, None) in graph
+    assert (ukvcas_uri, RDFS.comment, None) in graph
+
+    # Check Person and Visa were auto-declared with labels & comments
+    assert (ex.Person, RDF.type, OWL.Class) in graph
+    assert (ex.Person, RDFS.label, None) in graph
+    assert (ex.Visa, RDF.type, OWL.Class) in graph
+    assert (ex.Visa, RDFS.label, None) in graph
+
+    # Check canBringDependants has xsd:boolean range
+    assert (ex.canbringdependants, RDF.type, OWL.DatatypeProperty) in graph
+    assert (ex.canbringdependants, RDFS.range, XSD.boolean) in graph
+
+
+def test_circular_and_self_parent_classes_are_sanitized(tmp_path):
+    schema = main.OntologySchema(
+        classes=[
+            main.ConceptClass(
+                name="Commitment",
+                parent_class="Commitment",
+                description="An ongoing commitment",
+            ),
+            main.ConceptClass(
+                name="Ancestry",
+                parent_class="Thing",
+                description="Ancestry claim",
+            ),
+        ]
+    )
+
+    merged = main.merge_ontologies([schema])
+    assert merged.classes[0].parent_class is None
+    assert merged.classes[1].parent_class is None
+
+    output = tmp_path / "cycle.ttl"
+    main.build_turtle_file(merged, "http://example.org/digitaltwin#", str(output))
+
+    graph = Graph().parse(output, format="turtle")
+    ex = Namespace("http://example.org/digitaltwin#")
+
+    assert (ex.Commitment, RDF.type, OWL.Class) in graph
+    assert (ex.Commitment, RDFS.subClassOf, ex.Commitment) not in graph
+    assert (ex.Ancestry, RDFS.subClassOf, ex.Thing) not in graph
+
+
+def test_text_extraction_uses_configured_local_ollama(monkeypatch):
+    monkeypatch.setenv("OLLAMA_BASE_URL", "http://ollama.local:11434")
+    monkeypatch.setenv("OLLAMA_MODEL", "qwen2.5:7b")
+    schema = main.OntologySchema()
+    with (
+        patch("main.ChatOllama") as chat_ollama,
+        patch("main.ChatPromptTemplate.from_messages") as from_messages,
+    ):
+        structured_llm = chat_ollama.return_value.with_structured_output.return_value
+        chain = from_messages.return_value.__or__.return_value
+        chain.invoke.return_value = schema
+
+        result = main.extract_ontology_from_text("Visa requirements")
+
+    chat_ollama.assert_called_once_with(
+        model="qwen2.5:7b",
+        base_url="http://ollama.local:11434",
+        temperature=0,
+    )
+    chat_ollama.return_value.with_structured_output.assert_called_once_with(
+        main.OntologySchema, method="json_schema"
+    )
+    from_messages.return_value.__or__.assert_called_once_with(structured_llm)
+    chain.invoke.assert_called_once_with({"document": "Visa requirements"})
+    assert result is schema
