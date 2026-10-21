@@ -24,10 +24,12 @@
   <div id="sigma-container"></div>
 
   <script>
-    // Pass the relative path to your TTL file
-    visualizeTurtle('./generated_ontology.ttl', 'sigma-container')
-      .then(() => console.log('File loaded and rendered successfully'))
-      .catch((err) => console.error('Error loading TTL file:', err));
+  const urlParams = new URLSearchParams(window.location.search);
+  const turtleFile = urlParams.get('file') || '../generated-ontologies/generated_ontology.ttl';
+
+  visualizeTurtle(turtleFile, 'sigma-container')
+    .then(() => console.log('File loaded and rendered successfully'))
+    .catch((err) => console.error('Error loading TTL file:', err));
   </script>
 </body>
 </html>

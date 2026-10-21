@@ -24,6 +24,8 @@ XSD_TYPE_MAP = {
     "date": XSD.date,
 }
 
+DEFAULT_GENERATED_ONTOLOGY_FILENAME = "generated-ontologies/generated_ontology.ttl"
+
 
 class ConceptClass(BaseModel):
     name: str = Field(description="PascalCase name of the class, e.g. 'TemperatureSensor' or 'VisaApplication'")
@@ -362,7 +364,7 @@ def main():
         description="Extract an ontology from a file or folder into one Turtle file."
     )
     parser.add_argument("input_path", type=Path, help="Input file or folder")
-    parser.add_argument("output_filename", nargs="?", default="base_ontology.ttl")
+    parser.add_argument("output_filename", nargs="?", default=DEFAULT_GENERATED_ONTOLOGY_FILENAME)
     args = parser.parse_args()
 
     if not args.input_path.exists():
