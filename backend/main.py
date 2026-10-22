@@ -25,7 +25,7 @@ XSD_TYPE_MAP = {
     "date": XSD.date,
 }
 
-DEFAULT_GENERATED_ONTOLOGY_FILENAME = "generated-ontologies/generated_ontology.ttl"
+DEFAULT_GENERATED_ONTOLOGY_FILENAME = "outputs/generated-ontologies/generated_ontology.ttl"
 
 
 class ConceptClass(BaseModel):
