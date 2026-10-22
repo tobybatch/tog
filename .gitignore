@@ -1,6 +1,18 @@
 .venv/
 .idea/
 csv/
-__pycache__/
+**/__pycache__/
 *.py[codz]
-generated-ontologies/
+.DS_Store
+
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+
+# Node / React
+frontend/node_modules/
+frontend/dist/
+
+# Compiled frontend assets in Flask
+backend/static/

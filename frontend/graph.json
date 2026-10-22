@@ -1,0 +1,444 @@
+{
+  "domain": "digitaltwin",
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "class:Certificateofsponsorship",
+      "canonical_key": "http://example.org/digitaltwin#Certificateofsponsorship",
+      "label": "CertificateOfSponsorship",
+      "aliases": [],
+      "type": "Class",
+      "description": "A reference number holding information about the job and personal details",
+      "properties": {
+        "dataProperties": [
+          {
+            "name": "hasDuration",
+            "data_type": "integer",
+            "description": "The duration of the certificate of sponsorship in days"
+          },
+          {
+            "name": "hasDateAssigned",
+            "data_type": "date",
+            "description": "The date the certificate of sponsorship was assigned"
+          },
+          {
+            "name": "hasDateValid",
+            "data_type": "date",
+            "description": "The date the certificate of sponsorship is valid until"
+          },
+          {
+            "name": "hasEmployerSupport",
+            "data_type": "boolean",
+            "description": "Whether the employer can support the individual financially"
+          },
+          {
+            "name": "sponsorCertifiesMaintenance",
+            "data_type": "boolean",
+            "description": "Whether the employer certifies maintenance"
+          }
+        ]
+      },
+      "metadata": {}
+    },
+    {
+      "id": "class:Sponsor",
+      "canonical_key": "http://example.org/digitaltwin#Sponsor",
+      "label": "Sponsor",
+      "aliases": [],
+      "type": "Class",
+      "description": "An organisation that gives a certificate of sponsorship",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Job",
+      "canonical_key": "http://example.org/digitaltwin#Job",
+      "label": "Job",
+      "aliases": [],
+      "type": "Class",
+      "description": "A position or role within an organisation",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Personaldetails",
+      "canonical_key": "http://example.org/digitaltwin#Personaldetails",
+      "label": "PersonalDetails",
+      "aliases": [],
+      "type": "Class",
+      "description": "Information about an individual's identity and contact details",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Financialsupport",
+      "canonical_key": "http://example.org/digitaltwin#Financialsupport",
+      "label": "FinancialSupport",
+      "aliases": [],
+      "type": "Class",
+      "description": "The ability to support oneself financially in the UK",
+      "properties": {
+        "dataProperties": [
+          {
+            "name": "hasAmount",
+            "data_type": "integer",
+            "description": "The amount of money required for financial support"
+          }
+        ]
+      },
+      "metadata": {}
+    },
+    {
+      "id": "class:Employer",
+      "canonical_key": "http://example.org/digitaltwin#Employer",
+      "label": "Employer",
+      "aliases": [],
+      "type": "Class",
+      "description": "An organisation that employs an individual",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Creativeworker",
+      "canonical_key": "http://example.org/digitaltwin#Creativeworker",
+      "label": "CreativeWorker",
+      "aliases": [],
+      "type": "Class",
+      "description": "An individual who works in a creative field",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Ukvisa",
+      "canonical_key": "http://example.org/digitaltwin#Ukvisa",
+      "label": "UKVisa",
+      "aliases": [],
+      "type": "Class",
+      "description": "A visa that allows an individual to work in the UK",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Passport",
+      "canonical_key": "http://example.org/digitaltwin#Passport",
+      "label": "Passport",
+      "aliases": [],
+      "type": "Class",
+      "description": "A travel document issued by a government to its citizens",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Bankstatement",
+      "canonical_key": "http://example.org/digitaltwin#Bankstatement",
+      "label": "BankStatement",
+      "aliases": [],
+      "type": "Class",
+      "description": "A document issued by a bank to show account balance and transactions",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Tuberculosistestresult",
+      "canonical_key": "http://example.org/digitaltwin#Tuberculosistestresult",
+      "label": "TuberculosisTestResult",
+      "aliases": [],
+      "type": "Class",
+      "description": "A document issued by a medical professional to confirm TB test results",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Visaapplication",
+      "canonical_key": "http://example.org/digitaltwin#Visaapplication",
+      "label": "VisaApplication",
+      "aliases": [],
+      "type": "Class",
+      "description": "A visa application submitted to the Home Office",
+      "properties": {
+        "dataProperties": [
+          {
+            "name": "decisionDate",
+            "data_type": "date",
+            "description": "The date of the visa decision"
+          }
+        ]
+      },
+      "metadata": {}
+    },
+    {
+      "id": "class:Temporaryworkcreativeworkervisa",
+      "canonical_key": "http://example.org/digitaltwin#Temporaryworkcreativeworkervisa",
+      "label": "TemporaryWorkCreativeWorkerVisa",
+      "aliases": [],
+      "type": "Class",
+      "description": "A type of visa for temporary workers in the creative industry",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Ukvisasandimmigrationaccount",
+      "canonical_key": "http://example.org/digitaltwin#Ukvisasandimmigrationaccount",
+      "label": "UKVisasAndImmigrationAccount",
+      "aliases": [],
+      "type": "Class",
+      "description": "An online account for UKVI services",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Evidence",
+      "canonical_key": "http://example.org/digitaltwin#Evidence",
+      "label": "Evidence",
+      "aliases": [],
+      "type": "Class",
+      "description": "A document or information required to support a visa application",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Fee",
+      "canonical_key": "http://example.org/digitaltwin#Fee",
+      "label": "Fee",
+      "aliases": [],
+      "type": "Class",
+      "description": "A payment required for a visa application",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Service",
+      "canonical_key": "http://example.org/digitaltwin#Service",
+      "label": "Service",
+      "aliases": [],
+      "type": "Class",
+      "description": "A service provided by the Home Office for visa applications",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Country",
+      "canonical_key": "http://example.org/digitaltwin#Country",
+      "label": "Country",
+      "aliases": [],
+      "type": "Class",
+      "description": "A country where a visa application is being made",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Dependant",
+      "canonical_key": "http://example.org/digitaltwin#Dependant",
+      "label": "Dependant",
+      "aliases": [],
+      "type": "Class",
+      "description": "A partner or child of a visa applicant",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Application",
+      "canonical_key": "http://example.org/digitaltwin#Application",
+      "label": "Application",
+      "aliases": [],
+      "type": "Class",
+      "description": "A visa application submitted by an individual",
+      "properties": {
+        "dataProperties": [
+          {
+            "name": "applicationNumber",
+            "data_type": "string",
+            "description": "The unique application number assigned to the visa application"
+          }
+        ]
+      },
+      "metadata": {}
+    },
+    {
+      "id": "individual:Ukvcas",
+      "canonical_key": "http://example.org/digitaltwin#Ukvcas",
+      "label": "UKVCAS",
+      "aliases": [],
+      "type": "Individual",
+      "description": "A UK Visa and Citizenship Application Services service point",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "individual:Unitedkingdom",
+      "canonical_key": "http://example.org/digitaltwin#Unitedkingdom",
+      "label": "UnitedKingdom",
+      "aliases": [],
+      "type": "Individual",
+      "description": "The country where the visa application is being made",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "class:Person",
+      "canonical_key": "http://example.org/digitaltwin#Person",
+      "label": "Person",
+      "aliases": [],
+      "type": "Class",
+      "description": null,
+      "properties": {
+        "dataProperties": [
+          {
+            "name": "personalSavings",
+            "data_type": "integer",
+            "description": "The amount of personal savings"
+          }
+        ]
+      },
+      "metadata": {}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "relationship:1",
+      "type": "instanceOf",
+      "from": "individual:Ukvcas",
+      "to": "class:Service",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "relationship:2",
+      "type": "instanceOf",
+      "from": "individual:Unitedkingdom",
+      "to": "class:Country",
+      "properties": {},
+      "metadata": {}
+    },
+    {
+      "id": "relationship:3",
+      "type": "hasSponsor",
+      "from": "class:Certificateofsponsorship",
+      "to": "class:Sponsor",
+      "properties": {
+        "description": "The organisation that gave the certificate of sponsorship"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:4",
+      "type": "hasJob",
+      "from": "class:Certificateofsponsorship",
+      "to": "class:Job",
+      "properties": {
+        "description": "The position or role within the organisation"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:5",
+      "type": "hasPersonalDetails",
+      "from": "class:Certificateofsponsorship",
+      "to": "class:Personaldetails",
+      "properties": {
+        "description": "The information about the individual's identity and contact details"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:6",
+      "type": "hasFinancialSupport",
+      "from": "class:Certificateofsponsorship",
+      "to": "class:Financialsupport",
+      "properties": {
+        "description": "The ability to support oneself financially in the UK"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:7",
+      "type": "isEmployedBy",
+      "from": "class:Creativeworker",
+      "to": "class:Employer",
+      "properties": {
+        "description": "The organisation that employs the individual"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:8",
+      "type": "hasCertificateOfSponsorship",
+      "from": "class:Creativeworker",
+      "to": "class:Certificateofsponsorship",
+      "properties": {
+        "description": "The certificate of sponsorship given by the employer"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:9",
+      "type": "hasApplicant",
+      "from": "class:Certificateofsponsorship",
+      "to": "class:Person",
+      "properties": {
+        "description": "The person sponsored by the certificate"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:10",
+      "type": "requiresEvidence",
+      "from": "class:Visaapplication",
+      "to": "class:Evidence",
+      "properties": {
+        "description": "The evidence required for the visa application"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:11",
+      "type": "hasEmployer",
+      "from": "class:Certificateofsponsorship",
+      "to": "class:Employer",
+      "properties": {
+        "description": "The employer sponsoring the worker"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:12",
+      "type": "hasApplicant",
+      "from": "class:Visaapplication",
+      "to": "class:Application",
+      "properties": {
+        "description": "The individual who submitted the visa application"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:13",
+      "type": "hasFee",
+      "from": "class:Visaapplication",
+      "to": "class:Fee",
+      "properties": {
+        "description": "The fee required for the visa application"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:14",
+      "type": "providedBy",
+      "from": "class:Service",
+      "to": "class:Service",
+      "properties": {
+        "description": "The service that provided the support for the visa application"
+      },
+      "metadata": {}
+    },
+    {
+      "id": "relationship:15",
+      "type": "hasDependant",
+      "from": "class:Application",
+      "to": "class:Dependant",
+      "properties": {
+        "description": "The partner or child of the visa applicant"
+      },
+      "metadata": {}
+    }
+  ]
+}
